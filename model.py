@@ -442,7 +442,7 @@ class RL_Policy(nn.Module):
         return value
 
     def evaluate_actions(self, inputs, rnn_hxs, masks, action, extras=None):
-
+        print(inputs.shape, rnn_hxs.shape, masks.shape, action.shape)
         value, actor_features, rnn_hxs = self(inputs, rnn_hxs, masks, extras)
         dist = self.dist(actor_features)
 
